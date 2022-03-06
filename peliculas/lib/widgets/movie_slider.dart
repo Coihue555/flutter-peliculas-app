@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-
 class MovieSlider extends StatelessWidget {
+  const MovieSlider({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -9,30 +9,26 @@ class MovieSlider extends StatelessWidget {
       width: double.infinity,
       height: 250,
       color: Colors.red,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text('Populares', style: TextStyle( fontSize: 20, fontWeight: FontWeight.bold),),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Text(
+            'Populares',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-
-          Expanded(
-            child: ListView.builder(
+        ),
+        Expanded(
+          child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 20,
-              itemBuilder: (_, int index) => _MoviePoster()
-              
-            ),
-          )
-        ]
-      ),
+              itemBuilder: (_, int index) => _MoviePoster()),
+        )
+      ]),
     );
   }
 }
 
 class _MoviePoster extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,14 +39,13 @@ class _MoviePoster extends StatelessWidget {
       child: Column(
         children: const [
           FadeInImage(
-                placeholder: AssetImage('assets/no-image.jpg'),
-                image: NetworkImage('https://via.placeholder.com/300x400'),
-                width: 130,
-                height: 190,
-                fit: BoxFit.cover,
-              ),
-
-              Text('Star Wars'),
+            placeholder: AssetImage('assets/no-image.jpg'),
+            image: NetworkImage('https://via.placeholder.com/300x400'),
+            width: 130,
+            height: 190,
+            fit: BoxFit.cover,
+          ),
+          Text('Star Wars'),
         ],
       ),
     );
